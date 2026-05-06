@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tên Sản Phẩm – B"Decor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d0d0d;
+      color: #e8e0d0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #c9a96e;
+      text-decoration: none;
+    }
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #a8a8a8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: #c9a96e; }
+    .back-btn svg { width: 16px; height: 16px; }
+
+    /* ── LAYOUT CHÍNH ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .container { grid-template-columns: 1fr; padding: 30px 20px; gap: 30px; }
+      header { padding: 16px 20px; }
+    }
+
+    /* ── ẢNH SẢN PHẨM ── */
+    .image-main {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .image-thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .image-thumbs img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 0.6;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .image-thumbs img.active,
+    .image-thumbs img:hover {
+      opacity: 1;
+      border-color: #c9a96e;
+    }
+
+    /* ── THÔNG TIN SẢN PHẨM ── */
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .label-line { width: 28px; height: 1px; background: #a8722a; }
+    .label-text {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #a8722a;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    h1 em { color: #c9a96e; font-style: italic; }
+
+    .price {
+      font-size: 26px;
+      color: #c9a96e;
+      font-family: 'Playfair Display', serif;
+      margin: 20px 0;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .price span { font-size: 14px; color: #888; font-family: 'Inter', sans-serif; margin-left: 6px; }
+
+    .description {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #b0a898;
+      margin: 20px 0;
+    }
+
+    /* ── THÔNG SỐ ── */
+    .specs { margin: 24px 0; }
+    .specs-title {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 12px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 14px;
+    }
+    .spec-row .key { color: #888; }
+    .spec-row .val { color: #e0d8c8; }
+
+    /* ── NÚT ── */
+    .buttons { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+    .btn-primary {
+      flex: 1;
+      min-width: 160px;
+      padding: 14px 24px;
+      background: #a8722a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #c9a96e; }
+
+    .btn-secondary {
+      flex: 1;
+      min-width: 160px;
+      padding: 14px 24px;
+      background: transparent;
+      color: #c9a96e;
+      border: 1px solid #a8722a;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(168,114,42,0.1); }
+
+    /* ── FOOTER NHỎ ── */
+    .contact-strip {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 24px 40px;
+      background: rgba(201,169,110,0.05);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .contact-strip p { font-size: 14px; color: #888; }
+    .contact-strip strong { color: #c9a96e; }
+    @media (max-width: 768px) {
+      .contact-strip { margin: 0 20px 40px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="bdecor-website_clean.html">B"Decor</a>
+    <a class="back-btn" href="bdecor-website_clean.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Quay lại
+    </a>
+  </header>
+
+  <!-- NỘI DUNG CHÍNH -->
+  <div class="container">
+
+    <!-- CỘT TRÁI: ẢNH -->
+    <div>
+      <!-- ★ THAY src bằng đường dẫn ảnh thực tế -->
+      <img id="mainImg" class="image-main"
+        src="bdecor-website_assets/img_004.jpg"
+        alt="Ảnh sản phẩm" />
+
+      <!-- Ảnh phụ (thumbnail) – thêm hoặc bớt tuỳ ý -->
+      <div class="image-thumbs">
+        <img src="bdecor-website_assets/img_004.jpg" class="active" onclick="changeImg(this)" alt="Ảnh 1"/>
+        <img src="bdecor-website_assets/img_002.jpg" onclick="changeImg(this)" alt="Ảnh 2"/>
+        <img src="bdecor-website_assets/img_003.jpg" onclick="changeImg(this)" alt="Ảnh 3"/>
+      </div>
+    </div>
+
+    <!-- CỘT PHẢI: THÔNG TIN -->
+    <div>
+      <div class="label">
+        <div class="label-line"></div>
+        <span class="label-text">Sản phẩm</span>  <!-- ★ Đổi danh mục -->
+      </div>
+
+      <!-- ★ THAY tên sản phẩm -->
+      <h1>Đèn chùm <em>phong cách Châu Âu</em></h1>
+
+      <!-- ★ THAY giá -->
+      <div class="price">
+        12.500.000 ₫
+        <span>(Đã bao gồm VAT)</span>
+      </div>
+
+      <!-- ★ THAY mô tả -->
+      <p class="description">
+        Đèn chùm thiết kế theo phong cách cổ điển Châu Âu, mang đến vẻ sang trọng
+        và ấm áp cho không gian phòng khách. Khung đèn được làm từ đồng nguyên chất,
+        kết hợp với pha lê cao cấp tạo nên hiệu ứng ánh sáng lung linh, độc đáo.
+      </p>
+
+      <!-- ★ THAY thông số kỹ thuật -->
+      <div class="specs">
+        <p class="specs-title">Thông số</p>
+        <div class="spec-row"><span class="key">Kích thước</span><span class="val">Ø80cm × H60cm</span></div>
+        <div class="spec-row"><span class="key">Chất liệu</span><span class="val">Đồng + Pha lê</span></div>
+        <div class="spec-row"><span class="key">Công suất</span><span class="val">12 × E14 40W</span></div>
+        <div class="spec-row"><span class="key">Màu sắc</span><span class="val">Vàng đồng</span></div>
+        <div class="spec-row"><span class="key">Bảo hành</span><span class="val">24 tháng</span></div>
+      </div>
+
+      <!-- NÚT LIÊN HỆ -->
+      <div class="buttons">
+        <!-- ★ THAY số điện thoại -->
+        <a class="btn-primary" href="tel:+84901234567">Gọi đặt hàng ngay</a>
+        <!-- ★ THAY link Zalo -->
+        <a class="btn-secondary" href="https://zalo.me/0901234567" target="_blank">Nhắn Zalo tư vấn</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- THANH LIÊN HỆ PHÍA DƯỚI -->
+  <div class="contact-strip">
+    <p>Cần tư vấn thêm? Liên hệ với chúng tôi</p>
+    <p>
+      <!-- ★ THAY thông tin liên hệ -->
+      <strong>Hotline:</strong> 0901 234 567 &nbsp;|&nbsp;
+      <strong>Email:</strong> contact@bdecor.vn &nbsp;|&nbsp;
+      <strong>Địa chỉ:</strong> TP. Hồ Chí Minh
+    </p>
+  </div>
+
+  <script>
+    function changeImg(el) {
+      document.getElementById('mainImg').src = el.src;
+      document.querySelectorAll('.image-thumbs img').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

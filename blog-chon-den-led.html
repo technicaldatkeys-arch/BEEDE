@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- ★ THAY tiêu đề bài viết -->
+  <title>Tiêu đề bài viết – B"Decor Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d0d0d;
+      color: #e8e0d0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #c9a96e;
+      text-decoration: none;
+    }
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #a8a8a8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: #c9a96e; }
+
+    /* ── ẢNH BÌA ── */
+    .cover {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+      /* Xoá dòng dưới nếu không có ảnh bìa */
+    }
+
+    /* ── BÀI VIẾT ── */
+    .article {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+    @media (max-width: 768px) {
+      .article { padding: 36px 20px 60px; }
+      header { padding: 16px 20px; }
+    }
+
+    /* Label danh mục */
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .label-line { width: 28px; height: 1px; background: #a8722a; }
+    .label-text {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #a8722a;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Tiêu đề chính */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    h1 em { color: #c9a96e; font-style: italic; }
+
+    /* Meta: ngày + tác giả */
+    .meta {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .meta span { color: #a8722a; margin: 0 6px; }
+
+    /* Nội dung bài viết */
+    .content p {
+      font-size: 16px;
+      color: #b8b0a0;
+      margin-bottom: 20px;
+    }
+    .content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #ffffff;
+      margin: 40px 0 16px;
+    }
+    .content h2 em { color: #c9a96e; font-style: italic; }
+
+    .content h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: #c9a96e;
+      letter-spacing: 1px;
+      margin: 28px 0 10px;
+      text-transform: uppercase;
+    }
+
+    /* Trích dẫn nổi bật */
+    .content blockquote {
+      border-left: 3px solid #a8722a;
+      padding: 16px 24px;
+      margin: 32px 0;
+      background: rgba(201,169,110,0.05);
+      border-radius: 0 8px 8px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: #d8cdb8;
+    }
+
+    /* Ảnh trong bài */
+    .content img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 28px 0;
+      display: block;
+    }
+    .content .img-caption {
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      margin-top: -16px;
+      margin-bottom: 28px;
+    }
+
+    /* Danh sách */
+    .content ul, .content ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+      color: #b8b0a0;
+      font-size: 16px;
+    }
+    .content li { margin-bottom: 8px; }
+
+    /* ── PHẦN CUỐI BÀI ── */
+    .article-footer {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      padding: 4px 14px;
+      border: 1px solid rgba(201,169,110,0.3);
+      border-radius: 20px;
+      font-size: 12px;
+      color: #a8722a;
+      letter-spacing: 1px;
+    }
+
+    /* Nút liên hệ cuối bài */
+    .cta-box {
+      max-width: 780px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) { .cta-box { padding: 0 20px; } }
+
+    .cta-inner {
+      background: rgba(201,169,110,0.05);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+    .cta-inner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cta-inner p { font-size: 14px; color: #888; margin-bottom: 20px; }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 12px 28px;
+      background: #a8722a;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #c9a96e; }
+    .btn-secondary {
+      padding: 12px 28px;
+      border: 1px solid #a8722a;
+      color: #c9a96e;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(168,114,42,0.1); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="bdecor-website_clean.html">B"Decor</a>
+    <a class="back-btn" href="bdecor-website_clean.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Quay lại
+    </a>
+  </header>
+
+  <!-- ★ ẢNH BÌA – thay src, hoặc xoá thẻ <img> này nếu không có ảnh -->
+ <!--  <img class="cover" src="bdecor-website_assets/img_anhbiablog2.jpg" alt="Ảnh bìa bài viết" /> -->
+
+  <!-- NỘI DUNG BÀI VIẾT -->
+  <article class="article">
+
+    <!-- Danh mục -->
+    <div class="label">
+      <div class="label-line"></div>
+      <!-- ★ THAY danh mục: Kiến thức / Dự án / Xu hướng / Mẹo hay -->
+      <span class="label-text">Kiến thức</span>
+    </div>
+
+    <!-- ★ THAY tiêu đề bài viết -->
+    <h1>Cách chọn đèn LED phù hợp <em>cho từng không gian</em></h1>
+
+    <!-- ★ THAY ngày và tác giả -->
+    <div class="meta">
+      06/05/2026 <span>·</span> B"Decor Team <span>·</span> 5 phút đọc
+    </div>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <div class="content">
+
+      <!-- ★ Đoạn mở đầu -->
+      <p>
+        Ánh sáng đóng vai trò quan trọng trong việc tạo nên không khí và cảm xúc
+        của một không gian sống. Việc lựa chọn đúng loại đèn LED không chỉ giúp
+        tiết kiệm điện năng mà còn nâng tầm thẩm mỹ cho ngôi nhà của bạn.
+      </p>
+
+      <!-- ★ Trích dẫn nổi bật -->
+      <blockquote>
+        Ánh sáng tốt không chỉ soi sáng căn phòng — nó còn kể câu chuyện
+        của chính không gian đó.
+      </blockquote>
+
+      <!-- ★ Tiêu đề phần 1 -->
+      <h2>1. Phòng khách — <em>điểm nhấn chủ đạo</em></h2>
+
+      <p>
+        Phòng khách là nơi tiếp khách và sinh hoạt gia đình, cần ánh sáng đủ sáng
+        nhưng vẫn ấm áp. Nhiệt độ màu lý tưởng từ 3000K – 4000K, kết hợp đèn
+        chùm trung tâm và đèn hắt tường tạo chiều sâu cho không gian.
+      </p>
+
+      <!-- ★ Chèn ảnh minh hoạ -->
+      <img src="bdecor-website_assets/img_phongkhach.jpg" alt="Phòng khách với đèn LED" />
+      <p class="img-caption">Đèn LED phòng khách – dự án thực tế của B"Decor</p>
+
+      <!-- ★ Tiêu đề phần 2 -->
+      <h2>2. Phòng ngủ — <em>không gian thư giãn</em></h2>
+
+      <p>
+        Phòng ngủ cần ánh sáng dịu nhẹ, tránh ánh sáng trắng chói. Khuyến nghị
+        dùng đèn có nhiệt độ màu 2700K – 3000K (ánh vàng ấm), có thể điều chỉnh
+        độ sáng để phù hợp với từng thời điểm trong ngày.
+      </p>
+
+	<!-- ★ Chèn ảnh minh hoạ -->
+	<img src="bdecor-website_assets/img_phongngu.png" alt="Phòng ngủ với đèn LED" />
+      	<p class="img-caption">Đèn LED phòng ngủ – dự án thực tế của B"Decor</p>
+      <!-- ★ Danh sách gợi ý -->
+      <h3>Gợi ý lựa chọn:</h3>
+      <ul>
+        <li>Đèn thả đầu giường – tạo điểm nhấn thẩm mỹ</li>
+        <li>Đèn LED dải âm trần – ánh sáng gián tiếp nhẹ nhàng</li>
+        <li>Đèn đọc sách có chân – linh hoạt, tiện dụng</li>
+      </ul>
+
+      <!-- ★ Thêm các phần tiếp theo tương tự bên trên -->
+      <!-- Xoá hoặc thêm <h2>, <p>, <img>, <blockquote>, <ul> tuỳ nội dung -->
+
+    </div>
+
+    <!-- CUỐI BÀI: TAGS -->
+    <div class="article-footer">
+      <div class="tags">
+        <!-- ★ THAY các tag phù hợp -->
+        <span class="tag">Đèn LED</span>
+        <span class="tag">Thiết kế nội thất</span>
+        <span class="tag">Kiến thức</span>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- NÚT LIÊN HỆ CUỐI BÀI -->
+  <div class="cta-box">
+    <div class="cta-inner">
+      <h3>Bạn cần tư vấn thêm?</h3>
+      <p>Đội ngũ B"Decor sẵn sàng hỗ trợ bạn lựa chọn giải pháp ánh sáng phù hợp nhất.</p>
+      <div class="cta-buttons">
+        <!-- ★ THAY số điện thoại và link Zalo -->
+        <a class="btn-primary" href="tel:+84901234567">Gọi ngay</a>
+        <a class="btn-secondary" href="https://zalo.me/0901234567" target="_blank">Nhắn Zalo</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
